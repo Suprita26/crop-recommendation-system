@@ -68,18 +68,6 @@ const crops = [
     rainfall: { min: 60, max: 110 },
   },
   {
-    name: "Sugarcane",
-    description: "A tall, water-intensive cash crop that needs a long frost-free growing season.",
-    season: "Year-round",
-    nitrogen: { min: 80, max: 120 },
-    phosphorus: { min: 40, max: 70 },
-    potassium: { min: 40, max: 70 },
-    temperature: { min: 21, max: 35 },
-    humidity: { min: 60, max: 85 },
-    ph: { min: 6.0, max: 7.5 },
-    rainfall: { min: 100, max: 200 },
-  },
-  {
     name: "Chickpea",
     description: "A cool-season legume, drought-tolerant and a good nitrogen-fixing rotation crop.",
     season: "Rabi",

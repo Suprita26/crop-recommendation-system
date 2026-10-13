@@ -1,0 +1,43 @@
+services:
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    networks:
+      - crop-network
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/crop-recommendation
+      - PORT=5000
+    depends_on:
+      - mongo
+    networks:
+      - crop-network
+
+  mongo:
+    image: mongo:latest
+    container_name: crop-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - crop-network
+
+volumes:
+  mongo-data:
+
+networks:
+  crop-network:
+    driver: bridge
